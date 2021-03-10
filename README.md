@@ -8,5 +8,4 @@ if you wante to used in linux or mac replace in foction tradure and volume 'del 
 + googletrans
 + os
  
-
-
+![00](https://user-images.githubusercontent.com/80406227/110689495-08323700-81e3-11eb-84e2-410965a1d1a2.png)
