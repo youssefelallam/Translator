@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from gtts import gTTS
 import tkinter.font as font
+from tkinter import messagebox
 from playsound import playsound
 from googletrans import Translator
 
@@ -60,17 +61,20 @@ scroll_y2.config(command=text_to.yview)
 def tradure():
     global afichage
     global langue
-    langue = lang_choice.get()
-    langue = langue.lower()
-    x = text_tran.get(1.0,END)
-    trons = Translator()
     try:
-        os.system('del hello.mp3')
+        langue = lang_choice.get()
+        langue = langue.lower()
+        x = text_tran.get(1.0,END)
+        trons = Translator()
+        try:
+            os.system('del hello.mp3')
+        except:
+            pass
+        afichage = trons.translate(x, dest=langue)
+        text_to.delete(1.0,END)
+        text_to.insert(INSERT,afichage.text)
     except:
-        pass
-    afichage = trons.translate(x, dest=langue)
-    text_to.delete(1.0,END)
-    text_to.insert(INSERT,afichage.text)
+        messagebox.showinfo('Message','the check you contion internet')
     
 
 def clear():
